@@ -157,6 +157,13 @@ ul,ol,menu{
 .message-date{
     font-size: 10px;
     align-self: flex-start;
+    white-space: nowrap;
+}
+.contact_last-message{
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px;
 }
 
 
