@@ -166,9 +166,15 @@ const app = new Vue({
                 ],
             }
         ],
+        answers:[
+            'L\'unica cosa chiara è la confusione.', 'Le finestre sono piene di giardini, viene voglia di pescare.', 
+            'Non rinunciare ai tuoi sogni, continua a dormire.', 'Ammaccabanane',
+            'Se ni\' mondo esistesse un po\' di bene e ognuin si considerasse suo fratello, ci sarebbe meno pensieri e meno pene e il mondo ne sarebbe assai più bello. .', 
+            'L\'alcol non risolve i problemi, ma neanche l\'acqua.'
+        ],
         currentIndex: -1,
         introImg: "./assets/intro.png ",
-
+        newMessage: '',
     },
     computed:{
 
@@ -176,6 +182,29 @@ const app = new Vue({
     methods:{
         openChat(index){
             this.currentIndex = index;
-        }
+        },
+        addMessage(currentIndex){
+            if (this.newMessage != '') {  
+                this.contacts[currentIndex].messages.push({
+                    date: dayjs().format('DD/MM/YYYY  HH:mm'),
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+            }
+            this.autoReply(); 
+        },
+        autoReply(){
+            setInterval(() =>{
+                this.contacts[this.currentIndex].messages.push({
+                    date: dayjs().format('DD/MM/YY HH:mm:ss'),
+                    message: this.randomAnswer(),
+                    status: 'received',
+                });
+            },1000);
+        },
+        randomAnswer() {
+            const random = Math.floor(Math.random() * this.answers.length);
+            return this.answers[random];
+        },
     }
 })
