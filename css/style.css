@@ -120,17 +120,20 @@ body {
     background-color: var(--bg-main-grey);
 }
 .search_icon{
-    padding: 8px 30px;
+    padding: 8px 18px;
     background-color: white;
-    border: 1px solid lightgrey;
+    border: 1px solid rgb(238, 238, 238);
     border-right: none;
-    cursor: pointer;
+    border-radius: 8px 0px 0px 8px;
 }
 .search_bar{
     width: 100%;
     line-height: 2.65;
-    border: 1px solid lightgrey;
+    border: 1px solid rgb(238, 238, 238);
+    border-left: none;
+    border-radius: 0px 8px 8px 0px;
     padding-left: 5px;
+    outline: none;
 }
 
 /* CONTACT LIST */
@@ -256,7 +259,7 @@ body {
 }
 .message{
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 8px 8px 4px 8px;
     display: flex;
     justify-content: space-between;    

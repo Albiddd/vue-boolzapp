@@ -40,7 +40,7 @@
                 <div class="search_icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <input type="text" class="search_bar" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" v-model="searchContact" class="search_bar" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- contact list -->
             <div class="contact-list">
@@ -48,13 +48,14 @@
                 class="contact" 
                 :class="{active: currentIndex == i}"
                 v-for="(contact, i) in contacts"
-                @click="openChat(i)">
+                @click="openChat(i)"
+                v-if="contact.name.toLowerCase().includes(searchContact.toLowerCase())">
                     <div class="contact_info">
                         <img class="avatar" :src="contact.avatar" alt="">
                         <div class="contact_details">
                             <div class="contact_name">{{contact.name}}</div>
                             <div class="contact_last-message" v-if="contact.messages.length > 0">
-                            {{contact.messages.at(-1).message}}
+                            {{contact.messages.at(-1).text}}
                             </div>
                         </div>
                     </div>
@@ -80,8 +81,8 @@
                             <div class="contact_name" >
                                 {{contacts[currentIndex].name}}
                             </div>
-                            <div class="last-seen" >
-                                Ultimo accesso
+                            <div class="last-seen" v-if="contacts[currentIndex].messages.at(-1).status == 'received'" >
+                                Ultimo accesso {{contacts[currentIndex].messages.at(-1).date}}
                             </div>
                         </div>
                     </div>
@@ -94,7 +95,7 @@
                     <div class="message"
                     :class="message.status"
                     v-for="(message,i) in contacts[currentIndex].messages">
-                        <span class="message-text">{{message.message}}</span>
+                        <span class="message-text">{{message.text}}</span>
                         <span class="chat_message-date">{{message.date}}</span>
                     </div> 
                 </div>

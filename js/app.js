@@ -10,18 +10,18 @@ const app = new Vue({
                 visible: true,
                 messages: [
                 {
-                    date: '10/01/2020 15:30:55',
-                    message: 'Hai portato a spasso il cane?',
+                    date: '10/01/2020 15:30',
+                    text: 'Hai portato a spasso il cane?',
                     status: 'sent'
                 },
                 {
-                    date: '10/01/2020 15:50:00',
-                    message: 'Ricordati di stendere i panni',
+                    date: '10/01/2020 15:50',
+                    text: 'Ricordati di stendere i panni',
                     status: 'sent'
                 },
                 {
-                    date: '10/01/2020 16:15:22',
-                    message: 'Tutto fatto!',
+                    date: '10/01/2020 16:15',
+                    text: 'Tutto fatto!',
                     status: 'received'
                 }
                 ],
@@ -32,18 +32,18 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '20/03/2020 16:30:00',
-                        message: 'Ciao come stai?',
+                        date: '20/03/2020 16:30',
+                        text: 'Ciao come stai?',
                         status: 'sent'
                     },
                     {
-                        date: '20/03/2020 16:30:55',
-                        message: 'Bene grazie! Stasera ci vediamo?',
+                        date: '20/03/2020 16:30',
+                        text: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received'
                     },
                     {
-                        date: '20/03/2020 16:35:00',
-                        message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                        date: '20/03/2020 16:35',
+                        text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'sent'
                     }
                 ],
@@ -54,18 +54,18 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '28/03/2020 10:10:40',
-                        message: 'La Marianna va in campagna',
+                        date: '28/03/2020 10:10',
+                        text: 'La Marianna va in campagna',
                         status: 'received'
                     },
                     {
-                        date: '28/03/2020 10:20:10',
-                        message: 'Sicuro di non aver sbagliato chat?',
+                        date: '28/03/2020 10:20',
+                        text: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent'
                     },
                     {
-                        date: '28/03/2020 16:15:22',
-                        message: 'Ah scusa!',
+                        date: '28/03/2020 16:15',
+                        text: 'Ah scusa!',
                         status: 'received'
                     }
                 ],
@@ -76,13 +76,13 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Lo sai che ha aperto una nuova pizzeria?',
+                        date: '10/01/2020 15:30',
+                        text: 'Lo sai che ha aperto una nuova pizzeria?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Si, ma preferirei andare al cinema',
+                        date: '10/01/2020 15:50',
+                        text: 'Si, ma preferirei andare al cinema',
                         status: 'received'
                     }
                 ],
@@ -93,13 +93,13 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Ricordati di chiamare la nonna',
+                        date: '10/01/2020 15:30',
+                        text: 'Ricordati di chiamare la nonna',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Va bene, stasera la sento',
+                        date: '10/01/2020 15:50',
+                        text: 'Va bene, stasera la sento',
                         status: 'received'
                     }
                 ],
@@ -110,18 +110,18 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Ciao Claudia, hai novità?',
+                        date: '10/01/2020 15:30',
+                        text: 'Ciao Claudia, hai novità?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Non ancora',
+                        date: '10/01/2020 15:50',
+                        text: 'Non ancora',
                         status: 'received'
                     },
                     {
-                        date: '10/01/2020 15:51:00',
-                        message: 'Nessuna nuova, buona nuova',
+                        date: '10/01/2020 15:51',
+                        text: 'Nessuna nuova, buona nuova',
                         status: 'sent'
                     }
                 ],
@@ -132,13 +132,13 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Fai gli auguri a Martina che è il suo compleanno!',
+                        date: '10/01/2020 15:30',
+                        text: 'Fai gli auguri a Martina che è il suo compleanno!',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Grazie per avermelo ricordato, le scrivo subito!',
+                        date: '10/01/2020 15:50',
+                        text: 'Grazie per avermelo ricordato, le scrivo subito!',
                         status: 'received'
                     }
                 ],
@@ -149,18 +149,18 @@ const app = new Vue({
                 visible: true,
                 messages: [
                     {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                        date: '10/01/2020 15:30',
+                        text: 'Ciao, andiamo a mangiare la pizza stasera?',
                         status: 'received'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
-                        message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                        date: '10/01/2020 15:50',
+                        text: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:51:00',
-                        message: 'OK!!',
+                        date: '10/01/2020 15:51',
+                        text: 'OK!!',
                         status: 'received'
                     }
                 ],
@@ -169,15 +169,16 @@ const app = new Vue({
         answers:[
             'L\'unica cosa chiara è la confusione.', 'Le finestre sono piene di giardini, viene voglia di pescare.', 
             'Non rinunciare ai tuoi sogni, continua a dormire.', 'Ammaccabanane',
-            'Se ni\' mondo esistesse un po\' di bene e ognuin si considerasse suo fratello, ci sarebbe meno pensieri e meno pene e il mondo ne sarebbe assai più bello. .', 
+            'Se ni\' mondo esistesse un po\' di bene e ognuin si considerasse suo fratello, ci sarebbe meno pensieri e meno pene e il mondo ne sarebbe assai più bello.', 
             'L\'alcol non risolve i problemi, ma neanche l\'acqua.'
         ],
         currentIndex: -1,
         introImg: "./assets/intro.png ",
         newMessage: '',
+        searchContact: '',
     },
     computed:{
-
+       
     },
     methods:{
         openChat(index){
@@ -187,17 +188,18 @@ const app = new Vue({
             if (this.newMessage != '') {  
                 this.contacts[currentIndex].messages.push({
                     date: dayjs().format('DD/MM/YYYY  HH:mm'),
-                    message: this.newMessage,
+                    text: this.newMessage,
                     status: 'sent'
                 });
             }
             this.autoReply(); 
+            
         },
         autoReply(){
-            setInterval(() =>{
+            setTimeout(() =>{
                 this.contacts[this.currentIndex].messages.push({
-                    date: dayjs().format('DD/MM/YY HH:mm:ss'),
-                    message: this.randomAnswer(),
+                    date: dayjs().format('DD/MM/YY HH:mm'),
+                    text: this.randomAnswer(),
                     status: 'received',
                 });
             },1000);
