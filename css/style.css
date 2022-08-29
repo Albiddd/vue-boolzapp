@@ -140,14 +140,14 @@ body {
     align-items: center;
     gap: 20px;
     padding: 10px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #F0F2F5;
     cursor: pointer;
 }
 .contact.active{
     background-color: #F0F2F5;
 }
 .contact:hover{
-    background-color: rgb(246, 248, 248);
+    background-color: rgb(247, 249, 249);
 }
 .contact_info{
     display: flex;
@@ -256,7 +256,10 @@ body {
 .message{
     font-size: 14px;
     border-radius: 5px;
-    padding: 8px;
+    padding: 8px 8px 4px 8px;
+    display: flex;
+    justify-content: space-between;    
+    gap: 14px;
 }
 .message.sent {
     align-self: flex-end;
@@ -265,6 +268,14 @@ body {
 .message.received {
     align-self: flex-start;
     background-color: white;
+}
+.message-text{
+    padding-bottom: 8px;
+}
+.chat_message-date{
+    font-size: 0.6rem;
+    color: grey;
+    align-self: flex-end;
 }
 .text_bar{
     background-color: var(--bg-main-grey);

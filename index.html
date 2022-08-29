@@ -77,7 +77,7 @@
                             <div class="contact_name" >
                                 {{contacts[currentIndex].name}}
                             </div>
-                            <div class="last-seen">
+                            <div class="last-seen" >
                                 Ultimo accesso
                             </div>
                         </div>
@@ -91,7 +91,8 @@
                     <div class="message"
                     :class="message.status"
                     v-for="(message,i) in contacts[currentIndex].messages">
-                        {{message.message}}
+                        <span class="message-text">{{message.message}}</span>
+                        <span class="chat_message-date">{{message.date}}</span>
                     </div> 
                 </div>
                 <div class="text_bar">
