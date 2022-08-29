@@ -165,7 +165,9 @@ const app = new Vue({
                     }
                 ],
             }
-        ]
+        ],
+        currentIndex: -1,
+        introImg: "./assets/intro.png "
 
     },
     computed:{
