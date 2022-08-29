@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" type="image/png" href="./assets/favicon.ico">
   <title>Boolzapp</title>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -30,7 +33,7 @@
                 </div>
                 <div class="notification_text">
                     <div>Ricevi notifiche dio nuovi messaggi</div>
-                    <a href="#">Attiva notifiche desktop</a>
+                    <a @click="" href="#">Attiva notifiche desktop</a>
                 </div>
             </div>
             <div class="search_container">
@@ -100,7 +103,10 @@
                         <i class="fa-regular fa-face-smile"></i>
                         <i class="fa-solid fa-paperclip"></i>
                     </div>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" 
+                    @keyup.enter="addMessage(currentIndex)" 
+                    v-model="newMessage" 
+                    placeholder="Scrivi un messaggio">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
