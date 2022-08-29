@@ -167,13 +167,15 @@ const app = new Vue({
             }
         ],
         currentIndex: -1,
-        introImg: "./assets/intro.png "
+        introImg: "./assets/intro.png ",
 
     },
     computed:{
 
     },
     methods:{
-
+        openChat(index){
+            this.currentIndex = index;
+        }
     }
 })

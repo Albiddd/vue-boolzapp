@@ -15,7 +15,7 @@
         <aside class="contact-aside">
             <div class="top_contact-nav">
                 <div class="user">
-                    <img src="./assets/avatar_io.jpg" alt="">
+                    <img src="./assets/mine-avatar.jpg" alt="">
                     <span>Alberto</span>
                 </div>
                 <div class="contact-nav">
@@ -42,8 +42,10 @@
             <!-- contact list -->
             <div class="contact-list">
                 <div
-                class="contact"
-                v-for="(contact, index) in contacts">
+                class="contact" 
+                :class="{active: currentIndex == i}"
+                v-for="(contact, i) in contacts"
+                @click="openChat(i)">
                     <div class="contact_info">
                         <img class="avatar" :src="contact.avatar" alt="">
                         <div class="contact_details">
@@ -70,13 +72,13 @@
             <div v-else>
                 <div class="chat_contact-bar">
                     <div class="chat_contact">
-                        <img src="./assets/avatar_1.jpg" alt="">
+                        <img :src="contacts[currentIndex].avatar" alt="">
                         <div class="contact_details">
                             <div class="contact_name" >
-                                Giorgio
+                                {{contacts[currentIndex].name}}
                             </div>
                             <div class="last-seen">
-                                Ultimo accesso nel 1758
+                                Ultimo accesso
                             </div>
                         </div>
                     </div>
@@ -86,15 +88,11 @@
                     </div>
                 </div>
                 <div class="chat">
-                 <div class="message sent">
-                    ciao
-                 </div> 
-                 <div class="message received">
-                    ok
-                 </div>   
-                 <div class="message sent">
-                    tutto ok
-                 </div>     
+                    <div class="message"
+                    :class="message.status"
+                    v-for="(message,i) in contacts[currentIndex].messages">
+                        {{message.message}}
+                    </div> 
                 </div>
                 <div class="text_bar">
                     <div class="text_bar_nav">
