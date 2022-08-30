@@ -12,17 +12,20 @@ const app = new Vue({
                 {
                     date: '10/01/2020 15:30',
                     text: 'Hai portato a spasso il cane?',
-                    status: 'sent'
+                    status: 'sent',
+                    messageMenu: false
                 },
                 {
                     date: '10/01/2020 15:50',
                     text: 'Ricordati di stendere i panni',
-                    status: 'sent'
+                    status: 'sent',
+                    messageMenu: false
                 },
                 {
                     date: '10/01/2020 16:15',
                     text: 'Tutto fatto!',
-                    status: 'received'
+                    status: 'received',
+                    messageMenu: false
                 }
                 ],
             },
@@ -34,17 +37,20 @@ const app = new Vue({
                     {
                         date: '20/03/2020 16:30',
                         text: 'Ciao come stai?',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     },
                     {
                         date: '20/03/2020 16:30',
                         text: 'Bene grazie! Stasera ci vediamo?',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     },
                     {
                         date: '20/03/2020 16:35',
                         text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     }
                 ],
             },
@@ -56,17 +62,20 @@ const app = new Vue({
                     {
                         date: '28/03/2020 10:10',
                         text: 'La Marianna va in campagna',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     },
                     {
                         date: '28/03/2020 10:20',
                         text: 'Sicuro di non aver sbagliato chat?',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     },
                     {
                         date: '28/03/2020 16:15',
                         text: 'Ah scusa!',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     }
                 ],
             },
@@ -78,12 +87,14 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30',
                         text: 'Lo sai che ha aperto una nuova pizzeria?',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     },
                     {
                         date: '10/01/2020 15:50',
                         text: 'Si, ma preferirei andare al cinema',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     }
                 ],
             },
@@ -95,12 +106,14 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30',
                         text: 'Ricordati di chiamare la nonna',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     },
                     {
                         date: '10/01/2020 15:50',
                         text: 'Va bene, stasera la sento',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     }
                 ],
             },
@@ -112,17 +125,20 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30',
                         text: 'Ciao Claudia, hai novità?',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     },
                     {
                         date: '10/01/2020 15:50',
                         text: 'Non ancora',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     },
                     {
                         date: '10/01/2020 15:51',
                         text: 'Nessuna nuova, buona nuova',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     }
                 ],
             },
@@ -134,12 +150,14 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30',
                         text: 'Fai gli auguri a Martina che è il suo compleanno!',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     },
                     {
                         date: '10/01/2020 15:50',
                         text: 'Grazie per avermelo ricordato, le scrivo subito!',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     }
                 ],
             },
@@ -151,17 +169,20 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30',
                         text: 'Ciao, andiamo a mangiare la pizza stasera?',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     },
                     {
                         date: '10/01/2020 15:50',
                         text: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-                        status: 'sent'
+                        status: 'sent',
+                        messageMenu: false
                     },
                     {
                         date: '10/01/2020 15:51',
                         text: 'OK!!',
-                        status: 'received'
+                        status: 'received',
+                        messageMenu: false
                     }
                 ],
             }
@@ -185,28 +206,35 @@ const app = new Vue({
             this.currentIndex = index;
         },
         addMessage(currentIndex){
+            const messages = this.contacts[currentIndex].messages
             if (this.newMessage != '') {  
-                this.contacts[currentIndex].messages.push({
+                messages.push({
                     date: dayjs().format('DD/MM/YYYY  HH:mm'),
                     text: this.newMessage,
-                    status: 'sent'
+                    status: 'sent',
+                    messageMenu: false
                 });
+
+                setTimeout(() =>{
+                    messages.push({
+                        date: dayjs().format('DD/MM/YY HH:mm'),
+                        text: this.randomAnswer(),
+                        status: 'received',
+                        messageMenu: false
+                    });
+                },1000);
             }
-            this.autoReply(); 
             
         },
-        autoReply(){
-            setTimeout(() =>{
-                this.contacts[this.currentIndex].messages.push({
-                    date: dayjs().format('DD/MM/YY HH:mm'),
-                    text: this.randomAnswer(),
-                    status: 'received',
-                });
-            },1000);
-        },
+
         randomAnswer() {
             const random = Math.floor(Math.random() * this.answers.length);
             return this.answers[random];
         },
+        deleteMessage(index){
+            if (this.contacts[this.currentIndex].messages.length > 0) {
+                this.contacts[this.currentIndex].messages.splice(index, 1);
+            } else return;
+        }
     }
 })

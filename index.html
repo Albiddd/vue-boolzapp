@@ -74,6 +74,7 @@
                 <div>Invia e ricevi messaggi senza mantenere il telefono connesso a Internet.<br> Usa Boolzaspp su un massimo di 4 dispositivi e un telefono contemporaneamente.</div>
             </div>
             <div v-else>
+                <!-- top bar -->
                 <div class="chat_contact-bar">
                     <div class="chat_contact">
                         <img :src="contacts[currentIndex].avatar" alt="">
@@ -81,8 +82,11 @@
                             <div class="contact_name" >
                                 {{contacts[currentIndex].name}}
                             </div>
-                            <div class="last-seen" v-if="contacts[currentIndex].messages.at(-1).status == 'received'" >
+                            <div class="last-seen" v-if="contacts[currentIndex].messages.length > 0">
                                 Ultimo accesso {{contacts[currentIndex].messages.at(-1).date}}
+                            </div>
+                            <div class="last-seen" v-else>
+                                
                             </div>
                         </div>
                     </div>
@@ -91,18 +95,30 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+                <!-- ambiente della chat -->
                 <div class="chat">
                     <div class="message"
                     :class="message.status"
                     v-for="(message,i) in contacts[currentIndex].messages">
                         <span class="message-text">{{message.text}}</span>
                         <span class="chat_message-date">{{message.date}}</span>
+                        <i
+                        class="fas fa-angle-down"
+                        @click="message.messageMenu = !message.messageMenu"
+                        ></i>
+                        <!-- menu info e cancellazione messaggio -->
+                        <div class="message-menu" v-if="message.messageMenu">
+                            <div class="menu_message-info">Info messaggio</div>
+                            <div @click="deleteMessage(i)" class="menu_message-delete">Cancella messaggio</div>
+                        </div>
                     </div> 
                 </div>
+               
+                <!-- barra inserimento messaggio -->
                 <div class="text_bar">
                     <div class="text_bar_nav">
                         <i class="fa-regular fa-face-smile"></i>
-                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fas fa-paperclip"></i>
                     </div>
                     <input type="text" 
                     @keyup.enter="addMessage(currentIndex)" 

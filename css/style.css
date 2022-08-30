@@ -44,6 +44,7 @@ body {
 .contact-aside{
     width: 33.33333333%;
     border-right: 1px solid rgb(231, 231, 231);
+    min-width: 330px;
 }
 
 .top_contact-nav{
@@ -198,7 +199,7 @@ body {
     height: calc(100vh);
 }
 .intro > img{
-    width: 50%;   
+    width: 50%; 
 }
 .intro > h3{
     font-size: 2rem;  
@@ -264,6 +265,8 @@ body {
     display: flex;
     justify-content: space-between;    
     gap: 14px;
+    position: relative;
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .message.sent {
     align-self: flex-end;
@@ -281,6 +284,53 @@ body {
     color: grey;
     align-self: flex-end;
 }
+
+/* message menu */
+.message>.fa-angle-down{
+    position: absolute;
+    top: 1px;
+    right: -4px;
+    border-radius: 50%;
+    padding: 2px 5px;
+    color: darkgray;
+    opacity: 0;
+    transition: transform 0.1s;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.message-menu{
+    position: absolute;
+    z-index: 10000;
+    max-width: 340px;
+    overflow: visible;
+    top: 22px;
+    right: 7px;
+    transition: transform 0.3;
+    transform-origin: left top;
+    transform: scale(1);
+    opacity: 1;
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);    
+}
+.message:hover>.fa-angle-down{
+    opacity: 1;
+    transform: translateX(-8px);
+}
+.message.received>.message-menu{
+    right: -157px;
+}
+
+.menu_message-info, .menu_message-delete{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.menu_message-info:hover, .menu_message-delete:hover{
+    background-color: rgb(248, 249, 249);
+}
+
+/* new message bar */
 .text_bar{
     background-color: var(--bg-main-grey);
     display: flex;
