@@ -207,13 +207,15 @@ const app = new Vue({
         },
         addMessage(currentIndex){
             const messages = this.contacts[currentIndex].messages
-            if (this.newMessage != '') {  
+            let cleanedMessage = this.newMessage.trim()
+            if (cleanedMessage != '') {  
                 messages.push({
                     date: dayjs().format('DD/MM/YYYY  HH:mm'),
                     text: this.newMessage,
                     status: 'sent',
                     messageMenu: false
                 });
+                this.newMessage = '';
 
                 setTimeout(() =>{
                     messages.push({
@@ -222,9 +224,11 @@ const app = new Vue({
                         status: 'received',
                         messageMenu: false
                     });
+                    
+                    this.autoScrollEnd();
                 },1000);
+                this.autoScrollEnd();
             }
-            
         },
 
         randomAnswer() {
@@ -232,9 +236,18 @@ const app = new Vue({
             return this.answers[random];
         },
         deleteMessage(index){
+            
             if (this.contacts[this.currentIndex].messages.length > 0) {
                 this.contacts[this.currentIndex].messages.splice(index, 1);
             } else return;
+        },
+        autoScrollEnd(){         
+            const el = document.querySelector('.chat');   
+            setTimeout(()=>{
+                if (el) {
+                    el.scrollTop = el.scrollHeight;
+                }
+            },0);
         }
     }
 })
