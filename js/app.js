@@ -242,12 +242,12 @@ const app = new Vue({
             } else return;
         },
         autoScrollEnd(){         
-            const el = document.querySelector('.chat');   
-            setTimeout(()=>{
+            const el = this.$refs.chat   
+            this.$nextTick(()=>{
                 if (el) {
                     el.scrollTop = el.scrollHeight;
                 }
-            },0);
+            });
         }
     }
 })

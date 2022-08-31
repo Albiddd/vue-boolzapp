@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <!-- ambiente della chat -->
-                <div class="chat">
+                <div class="chat" ref="chat">
                     <div class="message"
                     :class="message.status"
                     v-for="(message,i) in contacts[currentIndex].messages">
